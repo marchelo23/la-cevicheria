@@ -1,0 +1,296 @@
+/* ==========================================================================
+   Layout CSS - Estructura Visual, Grid, Flexbox y Secciones
+   ==========================================================================
+   Define cómo se posicionan los elementos macro en la pantalla.
+   Controla anchos máximos, contenedores de grilla, disposición
+   de secciones principales y reglas globales de responsividad.
+   ========================================================================== */
+
+/* =========================================
+   Contenedores Principales y Envolturas
+   ========================================= */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* Envoltura Global de contenido con fondo base inmersivo Animado */
+.main-content-wrapper {
+    position: relative;
+    overflow: hidden;
+}
+
+.main-content-wrapper::before {
+    content: "";
+    position: absolute;
+    top: -5%;
+    left: -5%;
+    width: 110%;
+    height: 110%;
+    background-image: url('../assets/images/decorativos/base 1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 0;
+    pointer-events: none;
+    animation: smoothBgPan 45s ease-in-out infinite alternate;
+}
+
+@keyframes smoothBgPan {
+    0% {
+        transform: translateY(0) scale(1.02);
+    }
+
+    100% {
+        transform: translateY(-2%) scale(1.05);
+    }
+}
+
+/* =========================================
+   Configuración de Secciones Verticales
+   ========================================= */
+.section {
+    padding: 6rem 0;
+    position: relative;
+    z-index: 1;
+    /* Encima del overlay */
+}
+
+.section h2,
+.section-title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #FEFEFE;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* =========================================
+   Hero Section (Encabezado Inmersivo Multimedia)
+   ========================================= */
+.hero-section {
+    position: relative;
+    height: 100vh;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.hero-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.video-overlay {
+    display: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 2rem;
+}
+
+/* =========================================
+   Sección de Platillos Destacados (Carrusel Manual Flexbox)
+   ========================================= */
+.platillos-section {
+    background-color: transparent;
+}
+
+.carousel-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.carousel-track {
+    display: flex;
+    gap: 2rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding: 1rem 0;
+    width: 100%;
+    /* Ocultar barra de desplazamiento */
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.carousel-track::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel-track>* {
+    scroll-snap-align: center;
+    flex: 0 0 calc(33.333% - 1.33rem);
+    min-width: 280px;
+}
+
+/* =========================================
+   Sección de Promociones (Carrusel Auto-Scroll CSS Scroll-Snap)
+   ========================================= */
+.promociones-section {
+    background-color: transparent;
+    overflow: hidden;
+    position: relative;
+}
+
+.snap-carousel {
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 1rem;
+    -ms-overflow-style: none;
+    /* IE y Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.snap-carousel::-webkit-scrollbar {
+    display: none;
+}
+
+.snap-carousel>* {
+    scroll-snap-align: center;
+    flex: 0 0 80%;
+    max-width: 400px;
+}
+
+/* =========================================
+   Sección Nosotros (Contenido Textual Centrado)
+   ========================================= */
+.nosotros-section {
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nosotros-text {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto;
+    color: #FEFEFE;
+}
+
+/* =========================================
+   Sección Ubicación (Grillas de Tarjetas de Sucursales)
+   ========================================= */
+.ubicacion-section {
+    background-color: transparent;
+}
+
+.ubicacion-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+    gap: 1.5rem;
+}
+
+/* Permitir que el titulo tome el espacio que necesita sin margen inferior que rompía el flex header */
+.ubicacion-header .section-title {
+    margin-bottom: 0;
+    text-align: left;
+    flex-grow: 1;
+}
+
+.btn-menu-global {
+    flex-shrink: 0;
+    box-shadow: 0 4px 15px rgba(3, 150, 166, 0.4);
+}
+
+.sucursales-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.sucursales-grid>* {
+    flex: 1 1 300px;
+    max-width: 380px;
+    /* Limitar ancho para que se vean balanceadas */
+}
+
+/* =========================================
+   Footer (Pie de Página Estático Simplificado)
+   ========================================= */
+.footer {
+    background-color: #00181c;
+    padding: 4rem 0 2rem;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.footer-social {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* =========================================
+   Media Queries - Adaptabilidad Responsiva General (Mobile-First approach descendente)
+   ========================================= */
+@media (max-width: 768px) {
+    .section {
+        padding: 4rem 0;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .carousel-track>* {
+        flex: 0 0 100%;
+    }
+
+    .nosotros-text {
+        font-size: 1.1rem;
+    }
+
+    .ubicacion-header {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .ubicacion-header .section-title {
+        text-align: center;
+    }
+}

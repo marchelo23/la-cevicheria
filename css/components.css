@@ -1,0 +1,457 @@
+/* ==========================================================================
+   Components CSS - Módulos Reutilizables de Interfaz (UI)
+   ==========================================================================
+   Define los estilos visuales independientes y aislados como botones,
+   tarjetas, formularios y modales, permitiendo su uso múltiple sin 
+   dependencia estricta de una sola sección.
+   ========================================================================== */
+
+/* =========================================
+   Sistema de Botones (Primary, Outline, Actions)
+   ========================================= */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: var(--radius-pill);
+    transition: all var(--transition-fast);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-primary {
+    background-color: var(--azul-fuerte);
+    color: var(--blanco);
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: var(--azul-medio);
+    color: var(--blanco);
+    box-shadow: 0 4px 15px rgba(5, 149, 175, 0.4);
+}
+
+.btn-outline {
+    background-color: transparent;
+    border: 2px solid var(--azul-fuerte);
+    color: var(--blanco);
+}
+
+.btn-outline:hover,
+.btn-outline:focus {
+    background-color: var(--azul-fuerte);
+    color: var(--blanco);
+}
+
+/* =========================================
+   Interfaz de Menú Flotante (Burbuja FAB) y Modal de Navegación
+   ========================================= */
+.floating-menu-btn {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: var(--blue-main);
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    box-shadow: var(--shadow-hover);
+    transition: transform var(--transition-fast), background-color var(--transition-fast);
+}
+
+.floating-menu-btn:hover {
+    transform: scale(1.1);
+    background-color: var(--neon-hover);
+    color: var(--bg-main);
+}
+
+.menu-icon {
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 54, 64, 0.95);
+    /* Fondo semitransparente pesado */
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    transition: opacity var(--transition-smooth);
+}
+
+.modal-overlay.hidden {
+    opacity: 0;
+    pointer-events: none;
+    display: flex !important;
+    /* Mantenemos flex, manejamos la visibilidad con opacity y pointer-events */
+}
+
+.modal-content {
+    background: transparent;
+    width: 100%;
+    max-width: 400px;
+    padding: 2rem;
+    position: relative;
+    transform: translateY(0) scale(1);
+    transition: transform var(--transition-smooth);
+}
+
+.modal-overlay.hidden .modal-content {
+    transform: translateY(20px) scale(0.95);
+}
+
+.close-modal-btn {
+    position: absolute;
+    top: -3rem;
+    right: 1rem;
+    font-size: 3rem;
+    color: var(--light-blue);
+    transition: color var(--transition-fast);
+}
+
+.close-modal-btn:hover {
+    color: var(--neon-hover);
+}
+
+.modal-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
+}
+
+.nav-link {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--text-main);
+    display: block;
+    padding: 0.5rem;
+    text-transform: uppercase;
+}
+
+.nav-link:hover {
+    color: var(--neon-hover);
+    transform: translateX(10px);
+}
+
+/* =========================================
+   Arquitectura de Tarjetas de Platillos (Grid Cards)
+   ========================================= */
+.card {
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Keep generic overlay or use a darker azure tone explicitly - using translucent black creates a 'slightly darker' effect dynamically on flat backgrounds */
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-soft);
+    border: 1px solid var(--azul-fuerte);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-hover);
+}
+
+.card-img-wrapper {
+    width: 100%;
+    height: 220px;
+    /* Fixed height to guarantee same visual height uniformly across all screens */
+    overflow: hidden;
+}
+
+.card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-smooth);
+}
+
+.card:hover .card-img {
+    transform: scale(1.05);
+    /* Efecto zoom al hacer hover en la tarjeta */
+}
+
+.card-body {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-title {
+    font-size: 1.1rem;
+    /* Más pequeño para no competir con H2 */
+    color: var(--light-blue);
+    margin-bottom: 0.5rem;
+}
+
+.card-desc {
+    font-size: 0.85rem;
+    /* Más claro que es texto descriptivo secundario */
+    color: rgba(254, 254, 254, 0.9);
+    flex-grow: 1;
+}
+
+.carousel-btn {
+    background-color: var(--blue-main);
+    color: var(--text-main);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    z-index: 10;
+    flex-shrink: 0;
+    transition: background-color var(--transition-fast);
+}
+
+.carousel-btn:hover {
+    background-color: var(--neon-hover);
+    color: var(--bg-main);
+}
+
+/* =========================================
+   Arquitectura de Tarjetas de Promociones (Highlight Cards)
+   ========================================= */
+.promo-card {
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 1.5rem;
+    border-radius: var(--radius-md);
+    border-left: 4px solid var(--azul-fuerte);
+    color: #FEFEFE;
+    box-shadow: var(--shadow-soft);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-height: 250px;
+    height: 100%;
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.promo-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.promo-img {
+    width: 100%;
+    height: 180px;
+    /* Uniform height specifically for promo items */
+    object-fit: cover;
+    border-radius: var(--radius-sm);
+    margin-bottom: 1.25rem;
+}
+
+.promo-card h3 {
+    font-size: 1.1rem;
+    /* Reducido para no igualar H2 */
+    margin-bottom: 0.5rem;
+    color: var(--neon-hover);
+}
+
+.promo-card p {
+    font-size: 0.85rem;
+    /* Tamaño p global */
+    margin-bottom: 0;
+    color: rgba(254, 254, 254, 0.9);
+}
+
+/* =========================================
+   Tarjetas Informativas de Sucursales (Location Cards)
+   ========================================= */
+.sucursal-card {
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 2rem;
+    border-radius: var(--radius-md);
+    border-top: 4px solid var(--azul-fuerte);
+    text-align: center;
+    transition: border-color var(--transition-fast);
+}
+
+.sucursal-card:hover {
+    border-top-color: var(--azul-medio);
+}
+
+.sucursal-title {
+    font-size: 1.1rem;
+    /* Equiparado a H3 global más los títulos de card */
+    margin-bottom: 1rem;
+    color: var(--light-blue);
+}
+
+.sucursal-addr {
+    font-size: 0.85rem;
+    /* Tamaño p descriptivo */
+    margin-bottom: 1.5rem;
+    color: rgba(254, 254, 254, 0.9);
+}
+
+.sucursal-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* =========================================
+   Formulario de Reclutamiento y Feedback UI (Job Card)
+   ========================================= */
+.form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+    padding: 3rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-hover);
+    border: 1px solid var(--azul-fuerte);
+    transition: transform var(--transition-smooth);
+}
+
+.form-container:hover {
+    transform: translateY(-5px);
+}
+
+.job-card-title {
+    font-size: 1.8rem;
+    color: #FEFEFE;
+    margin-bottom: 1.5rem;
+}
+
+.job-card-desc {
+    font-size: 1.1rem;
+    color: #FEFEFE;
+    margin-bottom: 2.5rem;
+    line-height: 1.8;
+}
+
+.btn-job {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.1rem;
+    background-color: var(--azul-fuerte);
+    color: var(--blanco);
+    box-shadow: 0 4px 15px rgba(5, 149, 175, 0.4);
+}
+
+.btn-job:hover {
+    background-color: var(--azul-medio);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #FEFEFE;
+}
+
+.required {
+    color: var(--neon-hover);
+}
+
+.form-group input,
+.form-group select {
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--neon-hover);
+    background-color: rgba(0, 0, 0, 0.3);
+    color: var(--text-main);
+    font-size: 1rem;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: var(--neon-hover);
+    box-shadow: 0 0 5px rgba(73, 242, 242, 0.2);
+}
+
+.form-group input::placeholder {
+    color: #4a6c73;
+}
+
+/* Select custom arrow */
+.form-group select {
+    appearance: none;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%2373CFD9%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 0.65em auto;
+    padding-right: 2.5rem;
+}
+
+.error-text {
+    font-size: 0.85rem;
+    color: #ff6b6b;
+    margin-top: 0.5rem;
+    display: none;
+}
+
+.form-group.has-error input,
+.form-group.has-error select {
+    border-color: #ff6b6b;
+}
+
+.form-group.has-error .error-text {
+    display: block;
+}
+
+.btn-submit {
+    width: 100%;
+    margin-top: 1rem;
+    position: relative;
+}
+
+/* Loading Spinner */
+.spinner {
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: var(--text-main);
+    animation: spin 1s ease-in-out infinite;
+    position: absolute;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.form-success {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background-color: rgba(73, 242, 242, 0.1);
+    border: 1px solid var(--neon-hover);
+    color: var(--neon-hover);
+    border-radius: var(--radius-sm);
+    text-align: center;
+    font-weight: 500;
+}

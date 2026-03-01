@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="La Cevichería - Restaurante de mariscos y cocina fusión salvadoreña">
+    <title>La Cevichería | Mar y Tierra Fusión</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS Modules -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+
+<body>
+
+    <!-- ==========================================
+         Menú Flotante (Modal Navigation)
+         ========================================== -->
+    <button id="btn-menu" class="floating-menu-btn" aria-label="Abrir menú de navegación">
+        <span class="menu-icon">☰</span>
+    </button>
+
+    <div id="nav-modal" class="modal-overlay hidden">
+        <nav class="modal-content">
+            <button id="btn-close-modal" class="close-modal-btn" aria-label="Cerrar menú">&times;</button>
+            <ul class="modal-links">
+                <li><a href="#hero" class="nav-link">Inicio</a></li>
+                <li><a href="#platillos" class="nav-link">Platillos</a></li>
+                <li><a href="#promociones" class="nav-link">Promociones</a></li>
+                <li><a href="#nosotros" class="nav-link">Nosotros</a></li>
+                <li><a href="#ubicacion" class="nav-link">Ubicación</a></li>
+                <li><a href="#postulaciones" class="nav-link">Trabaja con nosotros</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- ==========================================
+         Hero Section - Encabezado principal
+         Contiene el video de fondo interactivo y logo
+         ========================================== -->
+    <header id="hero" class="hero-section">
+        <div class="video-container">
+            <video autoplay muted loop playsinline class="hero-video">
+                <source src="assets/videos/390D2BBB-0F82-4F94-A650-8EDE9FA1C6B5.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="hero-content">
+            <img src="assets/images/logos/2.png" alt="La Cevichería Logo" class="hero-logo">
+        </div>
+    </header>
+
+    <main class="main-content-wrapper">
+        <div class="main-content-overlay"></div>
+
+        <!-- ==========================================
+             Platillos Destacados
+             Carrusel manual con botones prev/next
+             ========================================== -->
+        <section id="platillos" class="section platillos-section">
+            <div class="container">
+                <h2 class="section-title">Platillos Destacados</h2>
+                <div class="carousel-wrapper">
+                    <button class="carousel-btn prev-btn" id="platillos-prev" aria-label="Anterior">◀</button>
+                    <div class="carousel-track" id="platillos-track">
+                        <!-- Tarjeta 1 -->
+                        <article class="card">
+                            <div class="card-img-wrapper">
+                                <img src="assets/images/promociones/coctel.jpg" alt="Ceviche Clásico" class="card-img">
+                            </div>
+                            <div class="card-body">
+                                <h3 class="card-title">Ceviche Clásico Salvadoreño</h3>
+                                <p class="card-desc">Fresco pescado curtido con limón, cebolla morada, tomate y
+                                    cilantro.
+                                </p>
+                            </div>
+                        </article>
+                        <!-- Tarjeta 2 -->
+                        <article class="card">
+                            <div class="card-img-wrapper">
+                                <img src="assets/images/promociones/mariscada.jpg" alt="Mar y Tierra" class="card-img">
+                            </div>
+                            <div class="card-body">
+                                <h3 class="card-title">Volcán Mar y Tierra</h3>
+                                <p class="card-desc">Aguachile de camarón montado sobre un corte de res a la parrilla.
+                                </p>
+                            </div>
+                        </article>
+                        <!-- Tarjeta 3 -->
+                        <article class="card">
+                            <div class="card-img-wrapper">
+                                <img src="assets/images/promociones/plato.jpg" alt="Coctel Mixto" class="card-img">
+                            </div>
+                            <div class="card-body">
+                                <h3 class="card-title">Coctel La Cevichería</h3>
+                                <p class="card-desc">Camarón, calamar y pulpo en nuestra salsa secreta de la casa.</p>
+                            </div>
+                        </article>
+                    </div>
+                    <button class="carousel-btn next-btn" id="platillos-next" aria-label="Siguiente">▶</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             Promociones Especiales
+             Fondo animado dinámico y carrusel infinito
+             ========================================== -->
+        <section id="promociones" class="section promociones-section animated-bg">
+            <div class="promociones-overlay"></div>
+            <!-- Burbujas animadas -->
+            <div class="bubbles-container">
+                <span class="bubble"></span>
+                <span class="bubble"></span>
+                <span class="bubble"></span>
+                <span class="bubble"></span>
+                <span class="bubble"></span>
+            </div>
+
+            <div class="container relative-z">
+                <h2 class="section-title">Promociones Especiales</h2>
+                <div class="snap-carousel">
+                    <div class="promo-card">
+                        <img src="assets/images/promociones/carne.jpg" alt="Promo 1" class="promo-img">
+                        <h3>Martes de Ceviche</h3>
+                        <p>2x1 en Ceviche Clásico Salvadoreño</p>
+                    </div>
+                    <div class="promo-card">
+                        <img src="assets/images/promociones/pinchos.jpg" alt="Promo 2" class="promo-img">
+                        <h3>Jueves Mar y Tierra</h3>
+                        <p>Postre gratis en la compra del Volcán</p>
+                    </div>
+                    <div class="promo-card">
+                        <img src="assets/images/promociones/pizza.jpg" alt="Promo 3" class="promo-img">
+                        <h3>Happy Hour Diario</h3>
+                        <p>Bebidas nacionales a mitad de precio de 5pm a 7pm</p>
+                    </div>
+                    <div class="promo-card">
+                        <img src="assets/images/promociones/chicharron.jpg" alt="Promo 4" class="promo-img">
+                        <h3>Finde Familiar</h3>
+                        <p>Paquete familiar con 20% de descuento</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             Sección Nosotros
+             Información corporativa y concepto de fusión
+             ========================================== -->
+        <section id="nosotros" class="section nosotros-section">
+            <div class="container text-center">
+                <h2 class="section-title">Nosotros</h2>
+                <p class="nosotros-text">
+                    Nacimos con la pasión de fusionar los sabores frescos del mar con la riqueza culinaria de nuestra
+                    tierra
+                    salvadoreña. En La Cevichería, cada platillo es una celebración de calidad, tradición y un toque
+                    contemporáneo que busca deleitar todos tus sentidos.
+                </p>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             Ubicación y Sucursales
+             Muestra información por sucursal y menú general
+             ========================================== -->
+        <section id="ubicacion" class="section ubicacion-section">
+            <div class="container">
+                <!-- Cabecera de ubicación con botón estratégico general de menú -->
+                <div class="ubicacion-header">
+                    <h2 class="section-title text-center">Nuestras Sucursales</h2>
+                    <a href="assets/menu-sanbenito.pdf" target="_blank" class="btn btn-primary btn-menu-global">Ver
+                        Menú</a>
+                </div>
+                <div class="sucursales-grid">
+                    <!-- Sucursal 1 -->
+                    <div class="sucursal-card">
+                        <h3 class="sucursal-title">Sonsonate</h3>
+                        <p class="sucursal-addr">Centro Comercial Metrocentro, Local 12</p>
+                        <div class="sucursal-actions">
+                            <a href="https://maps.google.com" target="_blank" class="btn btn-outline">Ver en Mapa</a>
+                        </div>
+                    </div>
+                    <!-- Sucursal 2 -->
+                    <div class="sucursal-card">
+                        <h3 class="sucursal-title">Antiguo Cuscatlán</h3>
+                        <p class="sucursal-addr">Plaza Madero, Calle 2, Local 5</p>
+                        <div class="sucursal-actions">
+                            <a href="https://maps.google.com" target="_blank" class="btn btn-outline">Ver en Mapa</a>
+                        </div>
+                    </div>
+                    <!-- Sucursal 3 -->
+                    <div class="sucursal-card">
+                        <h3 class="sucursal-title">Centro Histórico</h3>
+                        <p class="sucursal-addr">Frente a Plaza Libertad, Edificio Colonial</p>
+                        <div class="sucursal-actions">
+                            <a href="https://maps.google.com" target="_blank" class="btn btn-outline">Ver en Mapa</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             Bolsa de Trabajo (Postulaciones)
+             Formulario de contacto para reclutamiento
+             ========================================== -->
+        <section id="postulaciones" class="section postulaciones-section">
+            <div class="container">
+                <h2 class="section-title text-center">Trabaja con Nosotros</h2>
+                <div class="form-container">
+                    <div class="job-card text-center">
+                        <h3 class="job-card-title">Únete a nuestro equipo</h3>
+                        <p class="job-card-desc">Si tienes pasión por la gastronomía y el servicio al cliente, envíanos
+                            tu información a nuestro correo oficial. Estaremos encantados de conocerte.</p>
+                        <a href="mailto:empleo@lacevicheria.com?subject=Solicitud%20de%20Empleo%20%E2%80%93%20La%20Cevicheria"
+                            class="btn btn-primary btn-job">Contactar por Correo</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ==========================================
+         Footer (Pie de página)
+         Muestra derechos reservados y redes sociales purgadas (Solo Instagram)
+         ========================================== -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <h2>La Cevichería</h2>
+                <p>Mar y Tierra Fusión</p>
+            </div>
+            <div class="footer-social">
+                <a href="#" class="social-link">Instagram</a>
+            </div>
+            <div class="footer-copy">
+                &copy; 2026 La Cevichería. Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Modules -->
+    <!-- El orden de carga importa. main.js coordinará. -->
+    <script src="js/menu.js" defer></script>
+    <script src="js/carrusel.js" defer></script>
+    <script src="js/form.js" defer></script>
+    <script src="js/scroll-effects.js" defer></script>
+    <script src="js/main.js" defer></script>
+</body>
+
+</html>
