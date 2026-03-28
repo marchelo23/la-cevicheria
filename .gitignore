@@ -1,0 +1,13 @@
+node_modules
+dist
+.git
+*.log
+
+# Font extras
+public/fonts/*.zip
+public/fonts/*.pdf
+public/fonts/*.png
+
+# Logo backups
+public/assets/images/logos/LB_clean.png
+public/assets/images/logos/LB_original.png

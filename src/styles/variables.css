@@ -1,0 +1,88 @@
+/* ==========================================================================
+   Variables CSS - Design Tokens & Reset
+   ========================================================================== */
+
+/* Doublebass Font Family */
+@font-face {
+    font-family: 'doublebass';
+    src: url('/fonts/DoubleBass-Thin-trial.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'doublebass';
+    src: url('/fonts/DoubleBass-Light-trial.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'doublebass';
+    src: url('/fonts/DoubleBass-Regular-trial.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'doublebass';
+    src: url('/fonts/DoubleBass-Bold-trial.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+:root {
+    /* Paleta Oficial */
+    --azul-fuerte: #0595AF;
+    --azul-medio: #369AAC;
+    --azul-claro: #70BECA;
+    --celeste: #B2EAF1;
+    --blanco: #FEFEFE;
+
+    /* Tonos oscuros */
+    --azul-profundo: #003640;
+    --azul-noche: #012127;
+    --negro-suave: #00181c;
+
+    /* Acento dorado (mar & tierra) */
+    --dorado: #D4A853;
+    --dorado-claro: #E8C97A;
+
+    /* Semantic Mappings */
+    --bg-main: var(--azul-fuerte);
+    --blue-main: var(--azul-medio);
+    --light-blue: var(--celeste);
+    --neon-hover: var(--azul-claro);
+    --text-main: var(--blanco);
+    --text-sec: var(--celeste);
+
+    /* Tipografía */
+    --font-display: 'doublebass', 'Montserrat', sans-serif;
+    --font-body: 'Montserrat', sans-serif;
+
+    /* Sombras */
+    --shadow-soft: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.15);
+    --shadow-hover: 0 12px 28px rgba(0, 0, 0, 0.25);
+    --shadow-glow: 0 0 30px rgba(5, 149, 175, 0.25);
+
+    /* Transiciones */
+    --transition-fast: 0.2s ease-in-out;
+    --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+
+    /* Border Radius */
+    --radius-sm: 6px;
+    --radius-md: 12px;
+    --radius-lg: 20px;
+    --radius-xl: 28px;
+    --radius-pill: 50px;
+
+    /* Glassmorphism */
+    --glass-bg: rgba(0, 54, 64, 0.55);
+    --glass-border: rgba(178, 234, 241, 0.15);
+    --glass-blur: 16px;
+}
