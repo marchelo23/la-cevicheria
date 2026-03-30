@@ -1148,7 +1148,33 @@ select:focus-visible {
     }
 
     .carousel-wrapper {
-        gap: 0.5rem;
+        gap: 0;
+    }
+
+    .carousel-btn {
+        position: absolute;
+        top: 35%;
+        transform: translateY(-50%);
+        z-index: 20;
+        width: 36px;
+        height: 36px;
+        background: rgba(0, 33, 39, 0.7); /* make them slightly darker so they contrast with img */
+    }
+
+    .carousel-btn.prev-btn {
+        left: -12px;
+    }
+
+    .carousel-btn.next-btn {
+        right: -12px;
+    }
+
+    .carousel-btn:hover {
+        transform: translateY(-50%) scale(1.08);
+    }
+
+    .carousel-track > * {
+        min-width: 100%;
     }
 
     .card-body {
